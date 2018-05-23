@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 
 from hello import views
+from model01 import views
 
 """
 
@@ -17,5 +18,7 @@ import方式导入模块
 # 在浏览器输入的地址 http://127.0.0.1:8000/hello
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', views.hello)
+    # path('hello/', views.hello),
+    path('test/', views.test),
+    path('model/', views.test_model)
 ]

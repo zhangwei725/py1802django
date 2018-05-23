@@ -16,7 +16,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hello',
+    'hello.apps.HelloConfig',
+    'model01',
 ]
 
 MIDDLEWARE = [
@@ -60,13 +61,19 @@ DATABASES = {
     'default': {
         # 支持的关系型数据
         'ENGINE': 'django.db.backends.mysql',
+        # 'ENGINE': 'django.db.backends.oracle',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'ENGINE': 'django.db.backends.postgresql',
         # 数据的名称
-        'NAME': 'django',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'CHARSET': 'utf8'
+        # 'NAME': 'django',
+        # 'USER': 'root',
+        # 'PASSWORD': 'root',
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '3306',
+        # 'CHARSET': 'utf8'
+        'OPTIONS': {
+            'read_default_file': 'config/db.cnf'
+        }
     }
 }
 
@@ -101,3 +108,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'DEBUG',
+        },
+    }
+}

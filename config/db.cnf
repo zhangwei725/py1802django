@@ -1,0 +1,15 @@
+[client]
+#数据库
+database = django
+#用户名
+user = root
+#密码
+password= root
+host=127.0.0.1
+port= 3306
+default-character-set= utf8
+
+
+
+
+
