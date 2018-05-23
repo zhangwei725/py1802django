@@ -10,7 +10,7 @@ ALLOWED_HOSTS = []
 
 # 当我们创建app(项目功能模板//用户模块 设置模块,首页模块(门户模块))
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'django.contrib.admin',  # 系统内置的站点管理模块
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -93,10 +93,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
-# 国际化
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+# 修改成中文
+LANGUAGE_CODE = 'zh-hans'
+# 亚洲 上海
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 

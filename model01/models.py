@@ -46,35 +46,24 @@ id int(10)    primary key
 name varchar(20)  not null  default,
 age  int(3),
 CONSTRAINT  [外键名]  primary key(id)
-
-
-
-
-
-
-
-
-
-
-
-
-
-,
-
-
-
 )
-
-
 """
 
 
 # 主键是唯一的 会自动创建索引
 class Shop(models.Model):
+    TYPE_CHOICES = (
+        ('1', '家用电器'),
+        ('2', '通信设备'),
+    )
     # AutoField  自动增长  primary_key 主键
-    shop_id = models.AutoField(primary_key=True)
+    shop_id = models.AutoField(verbose_name='商品id', primary_key=True)
     #  表示字符串字段varchar(64)---对应数据的类型 varchar(64)
-    shop_name = models.CharField(max_length=64, null=False, db_index=True, unique=True, db_column='SHOPNAME')
+    shop_name = models.CharField(verbose_name='商品名称', max_length=64, null=False, db_index=True, unique=True,
+                                 db_column='SHOPNAME')
+
+    type = models.CharField(max_length=10, choices=TYPE_CHOICES)
+
     # 日期类型
     create_date = models.DateField(auto_now_add=True)
     # 日期和时间
@@ -82,8 +71,8 @@ class Shop(models.Model):
     age = models.IntegerField(default=0)
     #
     is_state = models.BooleanField()
-    dsc = models.CharField(max_length=100, null=True)
-    person = models.ForeignKey('Person', on_delete=models.CASCADE, db_column='pid')
+    dsc = models.CharField(max_length=100, null=True, blank=False)
+    # person = models.ForeignKey('Person', on_delete=models.CASCADE, db_column='pid')
     # float(10,2)
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 

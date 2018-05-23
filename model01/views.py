@@ -17,6 +17,7 @@ def test(reqeust):
     # pserson = Person.objects.all()
     return render(reqeust, '', '')
 
+
 def test_model(request):
     shop = Shop(is_state=True)
     shop.name = '手机1'
