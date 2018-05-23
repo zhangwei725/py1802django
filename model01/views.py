@@ -17,18 +17,15 @@ def test(reqeust):
     # pserson = Person.objects.all()
     return render(reqeust, '', '')
 
-
 def test_model(request):
-    # shop = Shop(name='手机', is_state=True)
-    # # insert into
-    # shop.save()
-    #
-    shop = Shop.objects.get(shop_id=1)
-    shop.name = '电脑'
-    shop.price = 1000.00
+    shop = Shop(is_state=True)
+    shop.name = '手机1'
+    shop.dsc = None
+    # insert into
     shop.save()
-
-
-
-
+    #
+    # shop = Shop.objects.get(shop_id=1)
+    # shop.name='测试数据1'
+    # shop.price = 1000.00
+    # shop.save()
     return HttpResponse('1111111')
