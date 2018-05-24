@@ -128,7 +128,7 @@ def find(request):
     #     print(emp[1])
     # emps = Emp.objects.values_list('emp_name', 'emp_no',named= True)
 
-    qs = Emp.objects.raw("select emp_no,emp_name from emp  where  job='it'")
+    qs = Emp.objects.raw("select emp_no,emp_name from emp  where  job='%s'", ['it'])
     objects = raw_tools(qs)
     for obj in objects:
         print(obj['emp_name'])
@@ -137,7 +137,6 @@ def find(request):
 
 
 def other(request):
-
     # 查询员工姓名包含小的所有员工信息   sql语句 like %小%
     # emps = Emp.objects.filter(emp_name__contains='小')
 
