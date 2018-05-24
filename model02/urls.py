@@ -10,4 +10,6 @@ urlpatterns = [
     url('update/', views.update),
     url('update1/', views.update1),
     url('delete/', views.delete),
+    url('find/', views.find),
+    url('other/', views.other),
 ]
