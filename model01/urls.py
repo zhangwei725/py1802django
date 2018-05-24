@@ -1,7 +1,6 @@
-from django.conf.urls import url, include
+from django.conf.urls import url
 from django.contrib import admin
 
-from hello import views
 from model01 import views
 
 """
@@ -12,10 +11,7 @@ import方式导入模块
 
 创建两个独立的命名空间    urls.py
 """
-# 在浏览器输入的地址
+# 在浏览器输入的地址 http://127.0.0.1:8000/hello
 urlpatterns = [
-    url('admin/', admin.site.urls),
-    # path('hello/', views.hello),
-    url('test/', views.test),
-    url('model/', include('model02.urls'))
+
 ]

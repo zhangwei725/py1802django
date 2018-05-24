@@ -87,3 +87,4 @@ class Shop(models.Model):
         db_table = 'shop'
         verbose_name = '商品信息'
         verbose_name_plural = '商品列表'
+

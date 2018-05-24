@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hello.apps.HelloConfig',
     'model01',
+    'model02',
 ]
 
 MIDDLEWARE = [
