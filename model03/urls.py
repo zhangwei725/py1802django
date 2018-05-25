@@ -12,6 +12,10 @@ import方式导入模块
 """
 # 在浏览器输入的地址
 urlpatterns = [
-    url('save/', views.save)
+    url('save/', views.save),
+    url('update/', views.update),
+    url('^find/&', views.find),
+    url('fk_save/', views.fk_save),
+    url('^fk1/$', views.fk_find),
 
 ]

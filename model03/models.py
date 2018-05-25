@@ -19,6 +19,22 @@ class Student(models.Model):
     stu_id = models.AutoField(primary_key=True)
     stu_name = models.CharField(max_length=32, db_index=True, unique=True)
 
+    """
+     参数说明
+
+     to 主表 对应类的名称
+
+     on_delete  当主表的数据删除的数据的时候子表如何处理数据
+     related_name   默认是类名小写_set 主表属性 
+     to_field  参照主表的字段  默认主键
+
+     """
+
+    teacher = models.ForeignKey('Teacher', on_delete=models.CASCADE, related_name='students', to_field='id',
+                                db_column='t_id')
+
+    # 使用一对多 就把外键设置唯一 就类似与一对一的效果
+    # stu  = models.ForeignKey(unique=True)
     class Meta:
         db_table = 'student'
 
@@ -42,9 +58,20 @@ class StudentDetail(models.Model):
     """
     student = models.OneToOneField('Student', on_delete=models.CASCADE, db_column='stu_id')
 
-    # 使用一对多 就把外键设置唯一 就类似与一对一的效果
-    # stu  = models.ForeignKey(unique=True)
+    # 建立一对多的关系
+    # to, on_delete=None, related_name=None,  to_field=None,
 
     #
     class Meta:
         db_table = 'student_detail'
+
+
+#  一对多
+# 一的一方的主表 多的一方是从表，多的一方建外键
+
+
+class Teacher(models.Model):
+    tea_name = models.CharField(max_length=32, unique=True, db_index=True)
+
+    class Meta:
+        db_table = 'teacher'
