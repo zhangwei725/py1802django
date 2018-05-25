@@ -172,3 +172,81 @@ def raw_tools(raw_query_set):
             result.append(obj)
 
     return result
+
+
+def get_or_create(request):
+    # try:
+    #     emp=  Emp.objects.get(emp_name='test10', job='it')
+    # except :
+    #     Emp.objects.create(emp_name='test10', job='it')
+    # pass
+    emp = Emp.objects.update_or_create(default={'emp_name': 'test11'}, emp_name='小王')
+    print(emp)
+    return HttpResponse('111')
+
+
+def update_or_create(request):
+    # try:
+    #     emp=  Emp.objects.get(emp_name='test10', job='it')
+    # except :
+    #     Emp.objects.create(emp_name='test10', job='it')
+
+    emp = Emp.objects.update_or_create(default={'emp_name': 'test11'}, emp_name='小王')
+    print(emp)
+    # emp = Emp.objects.get(pk=1)
+    # print(emp)
+
+    return HttpResponse('111')
+
+
+def batch_save(request):
+    dept1 = Dept(dept_name='it', loc='武汉')
+    dept2 = Dept(dept_name='财务', loc='武汉')
+    objs = [dept1, dept2]
+    #
+    # 101     一次插入  batch = len(objs)
+    Dept.objects.bulk_create(objs, batch_size=100)
+    return HttpResponse('1111')
+
+
+from django.db.models import Sum, Avg, Max, Min, Count, Q, F
+
+
+def test_aggregate(request):
+    # sum = Emp.objects.aggregate(Sum('sal'))
+    # print(sum['sal__sum'])
+
+    count = Emp.objects.aggregate(count=Count('emp_name'))
+    print(count)
+    return HttpResponse('1111')
+
+
+def q_f(request):
+    # Emp.objects.filter(emp_name='',job='it')
+
+    # emps = Emp.objects.filter(Q(emp_name='小王1') & Q(job='it'))
+    # emps = Emp.objects.filter(Q(emp_name='小王1') | Q(job__icontains='it'))
+    # for emp in emps:
+    #     print(emp.emp_name)
+
+    # emps = Emp.objects.all()
+    # for emp in emps:
+    #     emp.sal *= 12
+    #     print(emp.sal)
+    #
+    # emp = Emp.objects.get(emp_name='老宋')
+    # emp.sal -= 1000.00
+    # emp.save()
+    # 已有的字段上面进行运行
+    #
+    Emp.objects.filter(emp_name='老宋').update(sal=F('sal') - 1000.00)
+    # Emp.objects.filter(sal=F('sal') * 12)
+
+    #  select
+    # update emp set  sal = 200.00
+
+    return HttpResponse('1111')
+
+"""
+select sal * 12 from  emp
+"""
