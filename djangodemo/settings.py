@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'hello.apps.HelloConfig',
     'model01',
     'model02',
+    'model03.apps.Model03Config',
 ]
 
 MIDDLEWARE = [

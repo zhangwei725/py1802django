@@ -2,6 +2,11 @@ from django.db.models.query import RawQuerySet
 from django.http import HttpResponse
 from django.shortcuts import render
 
+# linux 之父   垃圾的程序愿担心代码   优秀的程序担心的数据结构
+# 怎么样把这些模型之间的关系组织好   映射关系    表与表之间的关系   模型与模型之间的关系
+# 三种
+#  一对一（）    一对多（多对一）  多对多
+
 # Create your views here.
 from model02.models import Emp, Dept
 
@@ -222,13 +227,19 @@ def test_aggregate(request):
 
 
 def q_f(request):
-    # Emp.objects.filter(emp_name='',job='it')
+    # 当两个q对象使用连操作符会生成一个新的Q对象
 
+    name_q = Q(emp_name='小王')
+    q = Q(job__icontains='it') | name_q
+    # 等价于
+    # emps = Emp.objects.filter(Q(emp_name='小王1') |Q(job='it'))
+    # emps = Emp.objects.filter(q)
+    # Emp.objects.filter(emp_name='',job='it')
     # emps = Emp.objects.filter(Q(emp_name='小王1') & Q(job='it'))
-    # emps = Emp.objects.filter(Q(emp_name='小王1') | Q(job__icontains='it'))
+    Emp.objects.filter(~Q(job='it'))
+
     # for emp in emps:
     #     print(emp.emp_name)
-
     # emps = Emp.objects.all()
     # for emp in emps:
     #     emp.sal *= 12
@@ -246,6 +257,7 @@ def q_f(request):
     # update emp set  sal = 200.00
 
     return HttpResponse('1111')
+
 
 """
 select sal * 12 from  emp
