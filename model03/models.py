@@ -14,10 +14,49 @@ from django.db import models
 
 """
 
+"""
+1>多对多关系肯定有第三张表
+1> 也可以采用两个一对多去实现
+
+"""
+
+"""
+through
+作用 当你不想使用系统自带的模型类去创建时候 可以自己定义第三方表的模型对象
+
+"""
+
+
+# class StudentRoom(models.Model):
+#     stu_room_id = models.AutoField(primary_key=True)
+#     room = models.ForeignKey('Room')
+#     stu = models.ForeignKey('Student')
+#
+#     class Meta:
+#         db_table = 'student_room_middle'
+
+
+class Room(models.Model):
+    room_id = models.AutoField(primary_key=True)
+    room_name = models.CharField(max_length=32)
+
+    class Meta:
+        db_table = 'room'
+
 
 class Student(models.Model):
     stu_id = models.AutoField(primary_key=True)
     stu_name = models.CharField(max_length=32, db_index=True, unique=True)
+    # 多对多
+    """
+    参数说明
+    to 必须
+    to_filed 
+    related_name  主要用户主表查询字表时候的字段 默认是 
+    db_table   制定第三方张的名称 默认是 子表_主表
+    through  自己指定第三个模型对象
+    """
+    room = models.ManyToManyField(Room)
 
     """
      参数说明
