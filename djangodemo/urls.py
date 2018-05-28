@@ -18,6 +18,7 @@ import方式导入模块
 urlpatterns = [
     url('admin/', admin.site.urls),
     url('model/', include('model02.urls')),
+    url('hello/', include('hello.urls')),
     url('model03/', include('model03.urls')),
     url(r'views/', include('views01.urls'))
 

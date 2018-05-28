@@ -14,3 +14,13 @@ def hello(request):
     # template
     context = {'shop': shop}
     return render(request, 'users.html', context)
+
+
+def login(request):
+    if request.method == "GET":
+        return render(request, 'from.html')
+    elif request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        print(username)
+        print(password)

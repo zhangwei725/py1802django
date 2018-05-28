@@ -17,9 +17,8 @@ url :     url(r'^list/(\d+)/(\d+)/$', views.list)
 访问路径　　　 http://127.0.0.1:8000/views/list/2/10/ 
 '''
 
-def list(request, p, s):
-    # request.GET.get('page')
-    return HttpResponse("当前页数%s 每页%s条" % (p, s))
+def list(request, page, size):
+    return HttpResponse("当前页数%s 每页%s条" % (page, size))
 
 
 '''
@@ -85,3 +84,5 @@ class Login(View):
     #
     # def delete(self):
     #     pass
+
+
