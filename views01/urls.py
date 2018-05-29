@@ -14,5 +14,7 @@ urlpatterns = [
     url(r'^cbv/', Login.as_view()),
     url(r'login/', views.login),
     url(r'login1/', views.login1),
-
+    url(r'register/', views.register),
+    url(r'meta/', views.meta),
+    url(r'resp/', views.resp),
 ]

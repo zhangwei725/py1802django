@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'model02',
     'model03.apps.Model03Config',
     'views01',
+    'temp01',
 ]
 
 MIDDLEWARE = [

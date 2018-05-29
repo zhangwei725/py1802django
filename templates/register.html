@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/views/register/" method="post">
+    {% csrf_token %}
+    <p>用户名:<input type="text" name="username" placeholder="请输入用户名"></p>
+    <input type="password" name="password" placeholder="请输入密码"><br>
+    <input type="password" name="password1" placeholder="请确认密码"><br>
+    <input type="checkbox" name="ck" value="1">测试
+    <input type="checkbox" name="ck" value="2">测试2
+    <input type="checkbox" name="ck" value="3">测试3
+    <input type="checkbox" name="ck" value="4">测试4<br>
+    <input type="submit" value="注册">
+</form>
+
+</body>
+</html>

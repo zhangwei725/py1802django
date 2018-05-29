@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>用户id</th>
+        <th>用户名</th>
+        <th>用户头像</th>
+    </tr>
+
+    {#    <tr>#}
+    {#        <td>1</td>#}
+    {#        <th>小明</th>#}
+    {#        <th>img</th>#}
+    {#    </tr>#}
+
+    {% for dic in users %}
+        <tr>
+            <td>{{ dic.uid }}</td>
+            <td>{{ dic.name }}</td>
+            <td><img src="{{ dic.img }}" width="50"></td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

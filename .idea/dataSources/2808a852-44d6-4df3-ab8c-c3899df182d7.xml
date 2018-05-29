@@ -923,218 +923,283 @@
     <table id="233" parent="2" name="student"/>
     <table id="234" parent="2" name="student_detail"/>
     <table id="235" parent="2" name="student_room"/>
-    <table id="236" parent="2" name="teacher"/>
-    <column id="237" parent="231" name="id">
+    <table id="236" parent="2" name="t_user"/>
+    <table id="237" parent="2" name="teacher"/>
+    <table id="238" parent="2" name="temp01_user"/>
+    <column id="239" parent="231" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="238" parent="231" name="app">
+    <column id="240" parent="231" name="app">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="239" parent="231" name="name">
+    <column id="241" parent="231" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="240" parent="231" name="applied">
+    <column id="242" parent="231" name="applied">
       <Position>4</Position>
       <DataType>datetime(6)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="241" parent="231" name="PRIMARY">
+    <key id="243" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="242" parent="232" name="room_id">
+    <column id="244" parent="232" name="room_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="232" name="room_name">
+    <column id="245" parent="232" name="room_name">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="244" parent="232" name="PRIMARY">
+    <key id="246" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>room_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="245" parent="233" name="stu_id">
+    <column id="247" parent="233" name="stu_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="233" name="stu_name">
+    <column id="248" parent="233" name="stu_name">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="233" name="t_id">
+    <column id="249" parent="233" name="t_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="248" parent="233" name="stu_name">
+    <index id="250" parent="233" name="stu_name">
       <ColNames>stu_name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="249" parent="233" name="student_t_id_bcfd28f5_fk_teacher_id">
+    <index id="251" parent="233" name="student_t_id_bcfd28f5_fk_teacher_id">
       <ColNames>t_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="250" parent="233" name="PRIMARY">
+    <key id="252" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>stu_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="251" parent="233" name="stu_name">
+    <key id="253" parent="233" name="stu_name">
       <ColNames>stu_name</ColNames>
       <UnderlyingIndexName>stu_name</UnderlyingIndexName>
     </key>
-    <foreign-key id="252" parent="233" name="student_t_id_bcfd28f5_fk_teacher_id">
+    <foreign-key id="254" parent="233" name="student_t_id_bcfd28f5_fk_teacher_id">
       <ColNames>t_id</ColNames>
       <RefSchemaName>django</RefSchemaName>
       <RefTableName>teacher</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="253" parent="234" name="stu_detail_id">
+    <column id="255" parent="234" name="stu_detail_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="234" name="email">
+    <column id="256" parent="234" name="email">
       <Position>2</Position>
       <DataType>varchar(64)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="234" name="no">
+    <column id="257" parent="234" name="no">
       <Position>3</Position>
       <DataType>varchar(128)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="234" name="stu_id">
+    <column id="258" parent="234" name="stu_id">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="257" parent="234" name="stu_id">
+    <index id="259" parent="234" name="stu_id">
       <ColNames>stu_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="258" parent="234" name="PRIMARY">
+    <key id="260" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>stu_detail_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="259" parent="234" name="stu_id">
+    <key id="261" parent="234" name="stu_id">
       <ColNames>stu_id</ColNames>
       <UnderlyingIndexName>stu_id</UnderlyingIndexName>
     </key>
-    <foreign-key id="260" parent="234" name="student_detail_stu_id_b3f76efa_fk_student_stu_id">
+    <foreign-key id="262" parent="234" name="student_detail_stu_id_b3f76efa_fk_student_stu_id">
       <ColNames>stu_id</ColNames>
       <RefSchemaName>django</RefSchemaName>
       <RefTableName>student</RefTableName>
       <RefColNames>stu_id</RefColNames>
     </foreign-key>
-    <column id="261" parent="235" name="id">
+    <column id="263" parent="235" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="235" name="student_id">
+    <column id="264" parent="235" name="student_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="235" name="room_id">
+    <column id="265" parent="235" name="room_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="264" parent="235" name="student_room_student_id_room_id_23d671ec_uniq">
+    <index id="266" parent="235" name="student_room_student_id_room_id_23d671ec_uniq">
       <ColNames>student_id
 room_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="265" parent="235" name="student_room_room_id_625e4bc4_fk_room_room_id">
+    <index id="267" parent="235" name="student_room_room_id_625e4bc4_fk_room_room_id">
       <ColNames>room_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="266" parent="235" name="PRIMARY">
+    <key id="268" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="267" parent="235" name="student_room_student_id_room_id_23d671ec_uniq">
+    <key id="269" parent="235" name="student_room_student_id_room_id_23d671ec_uniq">
       <ColNames>student_id
 room_id</ColNames>
       <UnderlyingIndexName>student_room_student_id_room_id_23d671ec_uniq</UnderlyingIndexName>
     </key>
-    <foreign-key id="268" parent="235" name="student_room_student_id_fcbd93bc_fk_student_stu_id">
+    <foreign-key id="270" parent="235" name="student_room_student_id_fcbd93bc_fk_student_stu_id">
       <ColNames>student_id</ColNames>
       <RefSchemaName>django</RefSchemaName>
       <RefTableName>student</RefTableName>
       <RefColNames>stu_id</RefColNames>
     </foreign-key>
-    <foreign-key id="269" parent="235" name="student_room_room_id_625e4bc4_fk_room_room_id">
+    <foreign-key id="271" parent="235" name="student_room_room_id_625e4bc4_fk_room_room_id">
       <ColNames>room_id</ColNames>
       <RefSchemaName>django</RefSchemaName>
       <RefTableName>room</RefTableName>
       <RefColNames>room_id</RefColNames>
     </foreign-key>
-    <column id="270" parent="236" name="id">
+    <column id="272" parent="236" name="uid">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="236" name="tea_name">
+    <column id="273" parent="236" name="username">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="272" parent="236" name="tea_name">
+    <column id="274" parent="236" name="password">
+      <Position>3</Position>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="275" parent="236" name="status">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="276" parent="236" name="username">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="277" parent="236" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>uid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="278" parent="236" name="username">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>username</UnderlyingIndexName>
+    </key>
+    <column id="279" parent="237" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="280" parent="237" name="tea_name">
+      <Position>2</Position>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="281" parent="237" name="tea_name">
       <ColNames>tea_name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="273" parent="236" name="PRIMARY">
+    <key id="282" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="274" parent="236" name="tea_name">
+    <key id="283" parent="237" name="tea_name">
       <ColNames>tea_name</ColNames>
       <UnderlyingIndexName>tea_name</UnderlyingIndexName>
+    </key>
+    <column id="284" parent="238" name="uid">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="285" parent="238" name="img">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="286" parent="238" name="name">
+      <Position>3</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="287" parent="238" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>uid</ColNames>
+      <Primary>1</Primary>
     </key>
   </database-model>
 </dataSource>

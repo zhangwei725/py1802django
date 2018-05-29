@@ -141,3 +141,62 @@ def login1(request):
         print(username)
         print(password)
         return render(request, 'index.html', {'username': username})
+
+
+def register(request):
+    if request.method == 'GET':
+        return render(request, 'register.html')
+    elif request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        ck = request.POST.getlist('ck')
+        print(ck)
+        try:
+            User.objects.get(username=username)
+        except User.DoesNotExist as e:
+            User.objects.create(username=username, password=password)
+        return HttpResponse('13213')
+
+
+# http://127.0.0.1:8000/list
+def page(request):
+    page = request.GET.get('page', default=1)
+    size = request.GET.get('size', default=10)
+
+
+# http://127.0.0.1:8000/list
+def meta(request):
+    # request.path
+    server_name = request.META['SERVER_NAME']
+    # 获取请求体的长度
+    length = request.META['CONTENT_LENGTH']
+    host = request.META['HTTP_HOST']
+    port = request.META['SERVER_PORT']
+
+    return HttpResponse('1111', content_type='application/json')
+
+
+"""
+# 一种返回模板  TemplateResponse  
+简写方式  render
+1> 语法格式
+render(reqeust,template_name,context=None,status=200,use=None)
+2>参数说明
+request (必要参数)  
+template_name 模板的名称 注意如果在模板下面有新建了文件夹使用 目录名/模板名  例如views/test.html
+3>context    字典对象 把一组字典的值添加到模板中去,默认是空
+#   返回json数据
+"""
+
+
+def resp(request):
+    # context = {'username': '123',
+    #            'hehe': 'http://ww1.sinaimg.cn/large/0065oQSqly1frqscr5o00j30k80qzafc.jpg'
+    #             ,'password':'123'
+    #            }
+    username = '123'
+    hehe = 'http://ww1.sinaimg.cn/large/0065oQSqly1frqscr5o00j30k80qzafc.jpg'
+    password = '123'
+    return render(request, 'veiws/test.html', locals())
+
+
