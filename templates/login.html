@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{# action 请求的路径#}
+{#用于后台获取用户的的信息的key#}
+{#get请求
+http://127.0.0.1:8000/views/login/?username=xiaoming&password=1111
+#}
+{#post请求 www-form-urlencoded
+http://127.0.0.1:8000/views/login1/
+username=xiaoming&password=1111
+#}
+
+
+http://127.0.0.1:8000/views/login1/
+{#post#}
+{#x-www-form-urlencoded 传输普通的字符串信息#}
+{##}
+{#multipart/form-data 当我们的提交的数据有文件的时候必须使用form-data#}
+
+<form action="http://127.0.0.1:8000/views/login1/" method="post" enctype="application/x-www-form-urlencoded">
+    {% csrf_token %}
+    <input type="text" name="username">
+    <input type="password" name="password">
+    <input type="submit" value="登录">
+</form>
+
+</body>
+</html>

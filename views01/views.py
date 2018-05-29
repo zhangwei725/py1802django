@@ -1,7 +1,10 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 # Create your views here.
 from django.views import View
+
+from views01.models import User
 
 
 def base(request):
@@ -16,6 +19,7 @@ url :     url(r'^list/(\d+)/(\d+)/$', views.list)
 视图函数　　　list(request, page, size)
 访问路径　　　 http://127.0.0.1:8000/views/list/2/10/ 
 '''
+
 
 def list(request, page, size):
     return HttpResponse("当前页数%s 每页%s条" % (page, size))
@@ -86,3 +90,54 @@ class Login(View):
     #     pass
 
 
+#  接受用户请求
+
+'''
+用户发送请求---->uwsgi----> urls----->views--->model---->返回数据(views)--->template 渲染--->views响应
+'''
+
+"""
+GET
+"""
+
+
+# ?
+
+# 127.0.0.1:8000/views01/login?username=xiaoming&password=123456
+def login(request):
+    msg = None
+    # 判断请求方式     GET POST 必须大写
+    if request.method == 'GET':
+        #   request.GET   返回的是 字典形式的  QueryDict
+        # QueryDict      get(key,default )   获取单个值
+        # QueryDict      getlist(key,default ) #  多选  多文件
+        username = request.GET.get('username', default='1')
+        password = request.GET.get('password')
+        # 判断用户输入的 用户名或者password 是否为空
+        if username and password:
+            qs = User.objects.filter(username=username)
+            if len(qs) > 0:
+                user = qs.first()
+                if user.password == password:
+                    msg = '登录成功'
+                else:
+                    msg = '密码错误'
+                pass
+            else:
+                msg = '账号不存在'
+        else:
+            msg = '账号不存在'
+    return HttpResponse(msg)
+
+
+# 响应用户的请求
+
+def login1(request):
+    if request.method == "GET":
+        return render(request, 'login.html')
+    elif request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        print(username)
+        print(password)
+        return render(request, 'index.html', {'username': username})

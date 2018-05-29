@@ -68,15 +68,15 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'ENGINE': 'django.db.backends.postgresql',
         # 数据的名称
-        # 'NAME': 'django',
-        # 'USER': 'root',
-        # 'PASSWORD': 'root',
-        # 'HOST': '127.0.0.1',
-        # 'PORT': '3306',
-        # 'CHARSET': 'utf8'
-        'OPTIONS': {
-            'read_default_file': 'config/db.cnf'
-        }
+        'NAME': 'django',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'CHARSET': 'utf8'
+        # 'OPTIONS': {
+        #     'read_default_file': 'config/db.cnf'
+        # }
     }
 }
 
