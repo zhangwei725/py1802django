@@ -118,3 +118,6 @@ venv.bak/
 将删除 hello/migrations/0001_initial.py
 将删除 hello/migrations/__pycache__/
 将删除 venv/
+.idea/dataSources.local.xml
+.idea/dataSources/2808a852-44d6-4df3-ab8c-c3899df182d7/
+.idea/workspace.xml

@@ -190,10 +190,10 @@ template_name 模板的名称 注意如果在模板下面有新建了文件夹�
 
 
 def resp(request):
-    # context = {'username': '123',
-    #            'hehe': 'http://ww1.sinaimg.cn/large/0065oQSqly1frqscr5o00j30k80qzafc.jpg'
-    #             ,'password':'123'
-    #            }
+    context = {'username': '123',
+               'hehe': 'http://ww1.sinaimg.cn/large/0065oQSqly1frqscr5o00j30k80qzafc.jpg'
+                ,'password':'123'
+               }
     username = '123'
     hehe = 'http://ww1.sinaimg.cn/large/0065oQSqly1frqscr5o00j30k80qzafc.jpg'
     password = '123'
