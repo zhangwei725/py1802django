@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 from model03.models import Student, StudentDetail, Teacher, Room
 
@@ -150,3 +151,18 @@ def many_find(request):
         for stu in stu_list:
             print(room.room_name)
             print(stu.stu_name)
+
+
+def students(request):
+    students = Student.objects.all()
+    return render(request, 'temp/student.html', locals())
+
+
+"""
+需要知道学生的id
+"""
+
+
+def student_detail(request, stu_id):
+    stu_detail = StudentDetail.objects.filter(student__stu_id=int(stu_id)).first()
+    return render(request, 'temp/student_detail.html', locals())

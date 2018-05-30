@@ -36,3 +36,9 @@ def temp_base(request):
 def user_list(request):
     user_dict = User.objects.all()
     return render(request, 'temp/for.html', {'users': user_dict})
+
+
+
+
+
+

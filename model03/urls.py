@@ -17,5 +17,7 @@ urlpatterns = [
     url('^find/&', views.find),
     url('fk_save/', views.fk_save),
     url('^fk1/$', views.fk_find),
-
+    url('student/', views.students),
+    # /detail/1
+    url(r'^detail/(?P<stu_id>\d+)/$', views.student_detail)
 ]
