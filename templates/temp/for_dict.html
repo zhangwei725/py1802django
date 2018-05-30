@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--盒子模型  内容的宽高    内边距 padding  外边距 margin  border -->
+    <!--浮动 左浮动(left) 右浮动(right) 打破正常文档流 脱离正常文档流  -->
+    <!-- 定位技术 绝对定位  相对对位-->
+    <style type="text/css">
+        #nav > li {
+            list-style: none;
+            padding: 5px 10px;
+            border-right: 1px solid green;
+            float: left;
+        }
+    </style>
+
+</head>
+<body>
+<ul id="nav">
+    {% for nav in nav_list %}
+        <li><a href="">{{ nav }}</a></li>
+    {% endfor %}
+</ul>
+
+
+{#{% for key,value in dic.items %}#}
+{#    <p> key:{{ key }}</p>#}
+{#    <p> value:{{ value }}</p>#}
+{#    <p>计数器:{{ forloop.revcounter }}</p>#}
+{#    <p>第一个元素:{{ forloop.first }} </p>#}
+{#    <p>最后一个元素:{{ forloop.last }}</p>#}
+{#{% endfor %}#}
+
+{% for key,value in dic.items %}
+
+    <p> key:{{ key }}</p>
+    <p> value:{{ value }}</p>
+    <p>计数器:{{ forloop.revcounter }}</p>
+    <p>第一个元素:{{ forloop.first }} </p>
+    <p>最后一个元素:{{ forloop.last }}</p>
+{% empty %}
+    <p>暂无相关内容</p>
+{% endfor %}
+
+</body>
+</html>

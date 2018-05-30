@@ -3,6 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+        table {
+            width: 100%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+
+    </style>
+
+
 </head>
 <body>
 
@@ -11,14 +29,14 @@
         <th>学生ID</th>
         <th>学生姓名</th>
         <th>老师姓名</th>
-        <th>学生详情</th>
+        <th>操作</th>
     </tr>
     {% for student in students %}
         <tr>
             <td>{{ student.stu_id }}</td>
             <td>{{ student.stu_name }}</td>
             <td>{{ student.teacher.tea_name }}</td>
-            <td><a href="http://127.0.0.1:8000/model03/detail/{{ student.stu_id }}">查看</a></td>
+            <td><a href="http://127.0.0.1:8000/model03/detail/{{ student.stu_id }}">查看</a> <a href="#">修改</a></td>
         </tr>
     {% endfor %}
 
