@@ -157,7 +157,6 @@ def students(request):
     students = Student.objects.all()
     return render(request, 'temp/student.html', locals())
 
-
 """
 需要知道学生的id
 """

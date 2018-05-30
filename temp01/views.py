@@ -40,7 +40,7 @@ def user_list(request):
 def for_dict(request):
     # dic = {'name': '小明', 'age': 10}
     dic = {}
-    nav_list = ['女装', '母婴', '美妆', '国际', '男装']
+
     return render(request, 'temp/for_dict.html', locals())
 
 
