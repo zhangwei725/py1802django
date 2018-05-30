@@ -22,6 +22,7 @@ urlpatterns = [
     url('model03/', include('model03.urls')),
     url(r'views/', include('views01.urls')),
     url(r'temp/', include('temp01.urls')),
+    url(r'temp3/', include('temp02.urls')),
 
     # http://127.0.0.1:8000/view/
 

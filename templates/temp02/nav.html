@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+    <style type="text/css">
+        #nav > li {
+            list-style: none;
+            padding: 5px 10px;
+            float: left;
+        }
+    </style>
+-->
+</head>
+<body>
+<ul id="nav">
+    {% for foo in nav_list %}
+        <li><a>{{ foo }}</a></li>
+        {% if not forloop.last %}
+            |
+        {% endif %}
+    {% endfor %}
+
+    {% if num > 1 %}
+        <p>数字大于1</p>
+    {% elif num == 1 %}
+        <p>等于1</p>
+    {% else %}
+        <p>小于</p>
+    {% endif %}
+
+    {% if user %}
+        用户名:<span>{{ user.name }}</span>  数量:<span>{{ user.num }}</span>
+    {% else %}
+        <a href="#">登录</a>
+        <a href="#">注册</a>
+    {% endif %}
+
+
+</ul>
+
+
+</body>
+</html>

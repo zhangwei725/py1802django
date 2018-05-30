@@ -1,7 +1,8 @@
 import os
 
+# 获取当前项目的根目录
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+print(BASE_DIR)
 SECRET_KEY = '98220o6prt=^o)y0)@$@*ujte&yx)_-ujvd1j04px0($beb+$%'
 
 DEBUG = True
@@ -22,6 +23,7 @@ INSTALLED_APPS = [
     'model03.apps.Model03Config',
     'views01',
     'temp01',
+    'temp02',
 ]
 
 MIDDLEWARE = [
@@ -107,8 +109,15 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
+# 通过url方法的静态文件的
+# http://127.0.0.1:8080/static
 STATIC_URL = '/static/'
+# 后期项目部署统一到一个文件中去
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+    # os.path.join(BASE_DIR, 'model03/statioc'),
+)
 
 LOGGING = {
     'version': 1,
