@@ -7,4 +7,6 @@ urlpatterns = [
     url(r'other/', views.other, name='other'),
     url(r'test_static/', views.test_static),
     url(r'ext/', views.ext),
+    url(r'sample/', views.filter_sample, name='filter'),
+    url(r'custom/', views.custom_filter),
 ]

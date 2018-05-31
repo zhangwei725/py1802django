@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load custom_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ 1111|test_filter:10 }}
+
+{#自定义的过滤器名称 处理的值  参数1  参数2 参数3 #}
+{% test_tag 10 20 30 20 %}
+
+</body>
+</html>

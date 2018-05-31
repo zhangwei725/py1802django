@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block page_contet %}
+    {#   当前面的值为 ''#}
+    <p>{{ msg|default:'默认值' }}</p>
+    {#    当前面的值为 None显示的默认值#}
+    <p>{{ msg|default_if_none:'hehe' }}</p>
+    <p> {{ msg|length }}</p>
+    {#    重点#}
+    <p> {{ create_date|date:'Y-m-d H:i:s' }}</p>
+    {#    {{ num|add:'1' }}#}
+    {#    {{ tag|join:',' }}#}
+    {#    <p>{{ tag|truncatechars:1 }}</p>#}
+    {{ tag|title }}
+    {{ tag|upper }}
+    {{ tag|lower }}
+{% endblock %}
+
+
+
+
+
+
